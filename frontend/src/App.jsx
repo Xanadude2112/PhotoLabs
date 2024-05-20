@@ -40,9 +40,9 @@ const sampleDataForPhotoListItem = {
 const App = (props) => {
   return (
     <div className="App">
-      <PhotoListItem photo={sampleDataForPhotoListItem["1"]}/>
-      <PhotoListItem photo={sampleDataForPhotoListItem["2"]}/>
-      <PhotoListItem photo={sampleDataForPhotoListItem["3"]}/>
+      <PhotoListItem key={sampleDataForPhotoListItem["1"].id} photo={sampleDataForPhotoListItem["1"]}/>
+      <PhotoListItem key={sampleDataForPhotoListItem["2"].id} photo={sampleDataForPhotoListItem["2"]}/>
+      <PhotoListItem key={sampleDataForPhotoListItem["3"].id} photo={sampleDataForPhotoListItem["3"]}/>
     </div>
   );
 };
