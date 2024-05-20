@@ -38,11 +38,12 @@ const sampleDataForPhotoListItem = {
 
 // Note: Rendering a single component to build components in isolation
 const App = (props) => {
+  const photos = Object.values(sampleDataForPhotoListItem);
   return (
     <div className="App">
-      <PhotoListItem key={sampleDataForPhotoListItem["1"].id} photo={sampleDataForPhotoListItem["1"]}/>
-      <PhotoListItem key={sampleDataForPhotoListItem["2"].id} photo={sampleDataForPhotoListItem["2"]}/>
-      <PhotoListItem key={sampleDataForPhotoListItem["3"].id} photo={sampleDataForPhotoListItem["3"]}/>
+      {photos.map(photo =>
+        <PhotoListItem key={photo.id} photo={photo} />
+      )}
     </div>
   );
 };
