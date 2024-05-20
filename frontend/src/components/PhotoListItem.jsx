@@ -7,8 +7,8 @@ const PhotoListItem = ({photo: {imageSource, profile, username, location: {city,
   return (
     <div className="photo-list__item">
     <img className="photo-list__image" src={imageSource}/>
-    <img className="photo-list__user-profile" src={profile}/>
     <div className="photo-list__user-details">
+      <img className="photo-list__user-profile" src={profile}/>
       <p className="photo-list__user-info">{username}</p>
       <p className="photo-list__user-location">{city}, {country}</p>
     </div>
