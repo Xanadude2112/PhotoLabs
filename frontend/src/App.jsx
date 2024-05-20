@@ -18,7 +18,7 @@ const sampleDataForPhotoListItem = {
 const App = (props) => {
   return (
     <div className="App">
-      <PhotoListItem {... sampleDataForPhotoListItem}/>
+      <PhotoListItem photo={sampleDataForPhotoListItem}/>
     </div>
   );
 };
