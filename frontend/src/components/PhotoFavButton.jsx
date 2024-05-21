@@ -2,17 +2,28 @@ import React, { useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-const PhotoFavButton = () => {
-  const [isFavourite, setIsFavourite] = useState(false);
+const PhotoFavButton = ({id, fave, setFave}) => {
+  const isFavourited = fave.includes(id) ? true : false;
 
-  const toggleFave = () => {
-    setIsFavourite(prevIsFavourite => !prevIsFavourite);
-  };
+  const faveButtonToggle = () => {
+    setFave(prev => { //prev is array
+      let newFave = [...prev]; //new array / new reference
+      const wasFaved = prev.includes(id);
+     if (wasFaved) {
+      const index = newFave.indexOf(id)
+      newFave.splice(index, 1);
+     } else {
+      newFave.push(id);
+     }
+     return newFave; //return updated prev
+     //prev === newFave
+    })
+  }
 
   return (
-    <div className="photo-list__fav-icon" onClick={toggleFave}>
+    <div className="photo-list__fav-icon" onClick={faveButtonToggle}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={isFavourite} />
+        <FavIcon selected={isFavourited} />
       </div>
     </div>
   );
