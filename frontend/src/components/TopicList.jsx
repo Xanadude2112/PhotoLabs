@@ -1,13 +1,14 @@
-import React from 'react';
-import '../styles/TopicList.scss';
+import React from "react";
+import "../styles/TopicList.scss";
+import TopicListItem from "./TopicListItem";
 
 const TopicList = ({ topics }) => {
   return (
-    <ul className="topic-list">
-      {topics.map(topic => (
-        <li key={topic.id}>{topic.name}</li>
-      ))}
-    </ul>
+    <div className="top-nav-bar__topic-list">
+      {topics.map(topic =>
+        <TopicListItem key={topic.id} topic={topic}/>
+      )}
+    </div>
   );
 };
 
