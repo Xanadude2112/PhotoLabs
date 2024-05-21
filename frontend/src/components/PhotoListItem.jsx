@@ -2,6 +2,7 @@ import React from "react";
 
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
+import TopicList from "./TopicList";
 
 const PhotoListItem = ({photo: { urls:{full}, user:{name, profile}, location: {city, country}}}) => {
   /* Insert React */
@@ -13,6 +14,9 @@ const PhotoListItem = ({photo: { urls:{full}, user:{name, profile}, location: {c
         <img className="photo-list__user-profile" src={profile}/>
         <p className="photo-list__user-info">{name}</p>
         <p className="photo-list__user-location">{city}, {country}</p>
+        <div className="top-nav-bar__topic-list">
+          <TopicList />
+        </div>
       </div>
     </div>
   );

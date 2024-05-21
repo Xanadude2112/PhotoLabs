@@ -2,6 +2,7 @@ import React from 'react';
 import PhotoListItem from 'components/PhotoListItem';
 import PhotoList from './components/PhotoList';
 import './App.scss';
+import TopicListItem from 'components/TopicListItem';
 
 
 // Note: Rendering a single component to build components in isolation
