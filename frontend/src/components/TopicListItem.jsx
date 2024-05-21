@@ -11,7 +11,7 @@ import "../styles/TopicListItem.scss";
 const TopicListItem = ({topic: {id, slug, title}}) => {
   return (
     <div className="topic-list__item">
-      <p className="topic-list__item">{title}</p>
+      {title}
     </div>
   );
 };
