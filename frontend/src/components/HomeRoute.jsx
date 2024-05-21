@@ -7,7 +7,6 @@ import '../styles/HomeRoute.scss';
 // lifting state: need to move usestate to parent component
 
 const HomeRoute = ({ photos, topics }) => {
-
   const [ fave, setFave ] = useState([]);
 
   return (
