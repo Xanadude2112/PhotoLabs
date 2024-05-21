@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-const PhotoFavButton = (props) => {
+const PhotoFavButton = () => {
   const [isFavourite, setIsFavourite] = useState(false);
 
   const toggleFave = () => {
@@ -11,7 +11,9 @@ const PhotoFavButton = (props) => {
 
   return (
     <div className="photo-list__fav-icon" onClick={toggleFave}>
-      <FavIcon selected={isFavourite} />
+      <div className="photo-list__fav-icon-svg">
+        <FavIcon selected={isFavourite} />
+      </div>
     </div>
   );
 };
