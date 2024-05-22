@@ -14,9 +14,7 @@ const initialState = {
 };
 
 const reducer = (state, action) => {
-  switch (
-    action.type //comparing action.type to all of the constants in action object
-  ) {
+  switch (action.type) { //comparing action.type to all of the constants in action objec
   case actions.FAVE_PHOTO_ADDED:
     return { ...state, fave: state.fave.concat(action.payload) };
   case actions.FAVE_PHOTO_REMOVED:
@@ -25,13 +23,12 @@ const reducer = (state, action) => {
     return { ...state, modalOpen: action.payload };
   case actions.SELECT_PHOTO:
     return { ...state, selectedPhoto: action.payload };
+  default:
+    throw new Error("NO ACTION FOUND");
   }
 };
 
 const useApplicationData = () => {
-  // const [modalOpen, setModalOpen] = useState(false);
-  // const [selectedPhoto, setSelectedPhoto] = useState({});
-  // const [fave, setFave] = useState([]);
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -61,7 +58,7 @@ const useApplicationData = () => {
       location: { city, country },
     } = photo;
     dispatch({
-      type: actions.SET_PHOTO_DATA,
+      type: actions.SELECT_PHOTO,
       payload: {
         photo: {
           id,
