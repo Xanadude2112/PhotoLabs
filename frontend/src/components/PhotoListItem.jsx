@@ -10,9 +10,8 @@ const PhotoListItem = ({
     location: { city, country },
   },
   fave,
-  setFave,
+  toggleFave,
   modalOpen,
-  setModalOpen,
   showModal,
   selectedPhoto,
   setSelectedPhoto,
@@ -33,7 +32,11 @@ const PhotoListItem = ({
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton id={id} fave={fave} setFave={setFave} />
+      <PhotoFavButton
+        id={id}
+        toggleFave={toggleFave}
+        favourited={fave.includes(id)}
+      />
       <img className="photo-list__image" src={full} onClick={photoSelect} />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={profile} />

@@ -1,12 +1,12 @@
-import React from 'react';
-import FavIcon from './FavIcon';
+import React from "react";
+import FavIcon from "./FavIcon";
 
-import '../styles/FavBadge.scss';
+import "../styles/FavBadge.scss";
 
-const FavBadge = ({ fave, setFave }) => {
+const FavBadge = ({ fave }) => {
   return (
-    <div className='fav-badge'>
-      <FavIcon selected={fave} displayAlert={fave.length > 0}/>
+    <div className="fav-badge">
+      <FavIcon selected={fave} displayAlert={fave.length > 0} />
     </div>
   );
 };

@@ -6,12 +6,10 @@ import PhotoList from "components/PhotoList";
 
 const PhotoDetailsModal = ({
   photos,
+  toggleFave,
   fave,
-  setFave,
   selectedPhoto,
-  setSelectedPhoto,
   modalOpen,
-  setModalOpen,
   showModal,
 }) => {
   if (!modalOpen) {
@@ -24,7 +22,7 @@ const PhotoDetailsModal = ({
       urls: { full },
       user: { name, profile },
       location: { city, country },
-    },
+    }
   } = selectedPhoto;
 
   console.log(id);
@@ -35,10 +33,17 @@ const PhotoDetailsModal = ({
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <div className="modal_content">
-        <PhotoFavButton fave={fave} setFave={setFave} id={id} />
+        <PhotoFavButton
+          favourited={fave.includes(id)}
+          toggleFave={toggleFave}
+          id={id}
+        />
         <img className="photo-details-modal__image" src={full} />
         <div className="photo-details-modal__photographer-details">
-          <img className="photo-details-modal__photographer-profile" src={profile} />
+          <img
+            className="photo-details-modal__photographer-profile"
+            src={profile}
+          />
           <div className="photo-list__user-info">
             <p>{name}</p>
             <p className="photo-list__user-location">
@@ -48,7 +53,7 @@ const PhotoDetailsModal = ({
         </div>
       </div>
       <h3>Similar Photos</h3>
-      <PhotoList photos={photos} fave={fave} setFave={setFave} />
+      <PhotoList photos={photos} toggleFave={toggleFave} fave={fave} />
     </div>
   );
 };

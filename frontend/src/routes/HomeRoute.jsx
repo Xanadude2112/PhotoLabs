@@ -1,18 +1,33 @@
-import React from 'react';
-import { useState } from 'react';
-import TopNavigation from '../components/TopNavigationBar';
-import PhotoList from '../components/PhotoList';
-import '../styles/HomeRoute.scss';
+import React from "react";
+import { useState } from "react";
+import TopNavigation from "../components/TopNavigationBar";
+import PhotoList from "../components/PhotoList";
+import "../styles/HomeRoute.scss";
 
 // lifting state: need to move usestate to parent component
 
-const HomeRoute = ({ photos, topics, modalOpen, fave, setFave, setModalOpen, showModal, selectedPhoto, setSelectedPhoto }) => {
- 
-
+const HomeRoute = ({
+  photos,
+  topics,
+  modalOpen,
+  toggleFave,
+  fave,
+  showModal,
+  selectedPhoto,
+  setSelectedPhoto,
+}) => {
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} fave={fave} setFave={setFave}/>
-      <PhotoList photos={photos} fave={fave} setFave={setFave} modalOpen={modalOpen} setModalOpen={setModalOpen} showModal={showModal} selectedPhoto={selectedPhoto} setSelectedPhoto={setSelectedPhoto}/>
+      <TopNavigation topics={topics} fave={fave} />
+      <PhotoList
+        photos={photos}
+        toggleFave={toggleFave}
+        fave={fave}
+        modalOpen={modalOpen}
+        showModal={showModal}
+        selectedPhoto={selectedPhoto}
+        setSelectedPhoto={setSelectedPhoto}
+      />
     </div>
   );
 };
