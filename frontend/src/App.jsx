@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useApplicationData from 'hooks/useApplicationData';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import './App.scss';
@@ -6,15 +7,15 @@ import photos from './mocks/photos';
 import topics from './mocks/topics';
 
 const App = () => {
-  const [ modalOpen, setModalOpen ] = useState(false);
-  const [ selectedPhoto, setSelectedPhoto ] = useState({});
-  const [ fave, setFave ] = useState([]);
-
-  const showModal = () => {
-    setModalOpen(!modalOpen);
-  };
-
-
+  const {
+    modalOpen,
+    setModalOpen,
+    selectedPhoto,
+    setSelectedPhoto,
+    fave,
+    setFave,
+    showModal,
+  } = useApplicationData();
 
   return (
     <div className="App">

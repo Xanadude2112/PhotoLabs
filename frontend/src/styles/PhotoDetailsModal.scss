@@ -34,7 +34,7 @@
 }
 
 .photo-details-modal__image {
-  width: 90%;
+  width: 100%;
   border-radius: 8px;
   margin: auto 0;
 }
@@ -50,6 +50,8 @@
 
 .photo-details-modal__photographer-details {
   display: flex;
+  justify-content: start;
+  align-items: center;
   font-size: 16px;
 }
 
@@ -82,5 +84,5 @@
 }
 
 .modal_content{
-   margin-left: 9%;
+   margin: 0 2%;
 }

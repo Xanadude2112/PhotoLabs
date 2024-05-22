@@ -37,12 +37,14 @@ const PhotoDetailsModal = ({
       <div className="modal_content">
         <PhotoFavButton fave={fave} setFave={setFave} id={id} />
         <img className="photo-details-modal__image" src={full} />
-        <div className="photo-list__user-details">
-          <img className="photo-list__user-profile" src={profile} />
-          <p className="photo-list__user-info">{name}</p>
-          <p className="photo-list__user-location">
-            {city}, {country}
-          </p>
+        <div className="photo-details-modal__photographer-details">
+          <img className="photo-details-modal__photographer-profile" src={profile} />
+          <div className="photo-list__user-info">
+            <p>{name}</p>
+            <p className="photo-list__user-location">
+              {city}, {country}
+            </p>
+          </div>
         </div>
       </div>
       <h3>Similar Photos</h3>
