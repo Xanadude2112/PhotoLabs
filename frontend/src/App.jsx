@@ -8,7 +8,6 @@ import topics from './mocks/topics';
 const App = () => {
   const [ modalOpen, setModalOpen ] = useState(false);
   const showModal = () => {
-    console.log("here")
     setModalOpen(!modalOpen);
   };
 
@@ -16,7 +15,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics} modalOpen={modalOpen} setModalOpen={setModalOpen} showModal={showModal}/>
-      <PhotoDetailsModal modalOpen={modalOpen} setModalOpen={setModalOpen} showModal={showModal}/>
+      <PhotoDetailsModal photos={photos} modalOpen={modalOpen} setModalOpen={setModalOpen} showModal={showModal}/>
     </div>
   );
 };
