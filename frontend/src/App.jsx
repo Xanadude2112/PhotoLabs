@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HomeRoute from './components/HomeRoute';
+import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import './App.scss';
 import photos from './mocks/photos';
