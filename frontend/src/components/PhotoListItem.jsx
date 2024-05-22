@@ -2,12 +2,16 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({photo: { id, urls:{full}, user:{name, profile}, location: {city, country}}, fave, setFave}) => {
+const PhotoListItem = ({photo: { id, urls:{full}, user:{name, profile}, location: {city, country}}, fave, setFave, modalOpen, setModalOpen}) => {
   /* Insert React */
+const showModal = () => {
+  setModalOpen(!modalOpen);
+}
+
   return (
     <div className="photo-list__item">
       <PhotoFavButton id={id} fave={fave} setFave={setFave}/>
-      <img className="photo-list__image" src={full}/>
+      <img className="photo-list__image" src={full} onClick={showModal}/>
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={profile}/>
         <p className="photo-list__user-info">{name}</p>
