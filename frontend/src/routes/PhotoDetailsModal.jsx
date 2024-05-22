@@ -8,8 +8,8 @@ if(!modalOpen){
 }
   return (
       <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button">
-        <img src={closeSymbol} alt="close symbol" onClick={showModal} />
+      <button className="photo-details-modal__close-button" onClick={showModal}>
+        <img src={closeSymbol} alt="close symbol" />
       </button>
     </div>
   )
