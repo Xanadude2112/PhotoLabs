@@ -6,13 +6,13 @@ import '../styles/HomeRoute.scss';
 
 // lifting state: need to move usestate to parent component
 
-const HomeRoute = ({ photos, topics, modalOpen, setModalOpen }) => {
+const HomeRoute = ({ photos, topics, modalOpen, setModalOpen, showModal }) => {
   const [ fave, setFave ] = useState([]);
 
   return (
     <div className="home-route">
       <TopNavigation topics={topics} fave={fave} setFave={setFave}/>
-      <PhotoList photos={photos} fave={fave} setFave={setFave} modalOpen={modalOpen} setModalOpen={setModalOpen}/>
+      <PhotoList photos={photos} fave={fave} setFave={setFave} modalOpen={modalOpen} setModalOpen={setModalOpen} showModal={showModal}/>
     </div>
   );
 };
