@@ -7,7 +7,7 @@ const PhotoListItem = ({photo: { id, urls:{full}, user:{name, profile}, location
 
   const photoSelect = () =>{
     showModal();
-    setSelectedPhoto({photo: { id, urls:{full}, user:{name, profile}, location: {city, country}}});
+    setSelectedPhoto({PhotoFavButton, photo: { id, urls:{full}, user:{name, profile}, location: {city, country}}});
   }
 
   return (

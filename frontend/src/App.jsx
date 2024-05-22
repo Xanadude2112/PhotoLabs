@@ -10,7 +10,6 @@ const App = () => {
   const [ selectedPhoto, setSelectedPhoto ] = useState({});
 
   const showModal = () => {
-    console.log("click")
     setModalOpen(!modalOpen);
   };
 
