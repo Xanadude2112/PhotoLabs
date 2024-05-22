@@ -6,8 +6,8 @@ import '../styles/HomeRoute.scss';
 
 // lifting state: need to move usestate to parent component
 
-const HomeRoute = ({ photos, topics, modalOpen, setModalOpen, showModal, selectedPhoto, setSelectedPhoto }) => {
-  const [ fave, setFave ] = useState([]);
+const HomeRoute = ({ photos, topics, modalOpen, fave, setFave, setModalOpen, showModal, selectedPhoto, setSelectedPhoto }) => {
+ 
 
   return (
     <div className="home-route">

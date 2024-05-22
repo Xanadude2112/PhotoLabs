@@ -8,16 +8,18 @@ import topics from './mocks/topics';
 const App = () => {
   const [ modalOpen, setModalOpen ] = useState(false);
   const [ selectedPhoto, setSelectedPhoto ] = useState({});
+  const [ fave, setFave ] = useState([]);
 
   const showModal = () => {
     setModalOpen(!modalOpen);
   };
 
 
+
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} modalOpen={modalOpen} setModalOpen={setModalOpen} showModal={showModal} selectedPhoto={selectedPhoto} setSelectedPhoto={setSelectedPhoto}/>
-      <PhotoDetailsModal photos={photos} modalOpen={modalOpen} setModalOpen={setModalOpen} showModal={showModal} selectedPhoto={selectedPhoto} setSelectedPhoto={setSelectedPhoto}/>
+      <HomeRoute photos={photos} topics={topics} fave={fave} setFave={setFave} modalOpen={modalOpen} setModalOpen={setModalOpen} showModal={showModal} selectedPhoto={selectedPhoto} setSelectedPhoto={setSelectedPhoto}/>
+      <PhotoDetailsModal photos={photos}fave={fave} setFave={setFave} modalOpen={modalOpen} setModalOpen={setModalOpen} showModal={showModal} selectedPhoto={selectedPhoto} setSelectedPhoto={setSelectedPhoto}/>
     </div>
   );
 };
