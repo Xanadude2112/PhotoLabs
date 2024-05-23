@@ -1,20 +1,24 @@
-import { useState, useReducer } from "react";
+import { useState, useReducer, useEffect } from "react";
 
 const actions = {
   FAVE_PHOTO_ADDED: "FAVE_PHOTO_ADDED",
   FAVE_PHOTO_REMOVED: "FAVE_PHOTO_REMOVED",
   SELECT_PHOTO: "SELECT_PHOTO",
   TOGGLE_MODAL: "TOGGLE_MODAL",
+  SET_PHOTOS: "SET_PHOTOS",
+  SET_TOPICS: "SET_TOPICS",
 };
 
 const initialState = {
   modalOpen: false,
   selectedPhoto: {},
   fave: [],
+  photos: [],
+  topics: [],
 };
 
 const reducer = (state, action) => {
-  switch (action.type) { //comparing action.type to all of the constants in action objec
+  switch (action.type) {
   case actions.FAVE_PHOTO_ADDED:
     return { ...state, fave: state.fave.concat(action.payload) };
   case actions.FAVE_PHOTO_REMOVED:
@@ -23,29 +27,43 @@ const reducer = (state, action) => {
     return { ...state, modalOpen: action.payload };
   case actions.SELECT_PHOTO:
     return { ...state, selectedPhoto: action.payload };
+  case actions.SET_PHOTOS:
+    return { ...state, photos: action.payload };
+  case actions.SET_TOPICS:
+    return { ...state, topics: action.payload };
   default:
     throw new Error("NO ACTION FOUND");
   }
 };
 
 const useApplicationData = () => {
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  useEffect(() => {
+    fetch(`/api/photos`)
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: actions.SET_PHOTOS, payload: data }))
+      .catch((error) => console.error("Error fetching photos:", error));
+  }, []);
+
+  useEffect(() => {
+    fetch(`/api/topics`)
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: actions.SET_TOPICS, payload: data }))
+      .catch((error) => console.error("Error fetching topics:", error));
+  }, []);
+
   const showModal = () => {
-    // setModalOpen((prevModalOpen) => !prevModalOpen);
     dispatch({ type: actions.TOGGLE_MODAL, payload: !state.modalOpen });
   };
 
   const toggleFave = (id) => {
     if (state.fave.includes(id)) {
-      // setFave(fave.filter((faveId) => faveId !== id)); //take fave and filter out any id that is not given id
       dispatch({
         type: actions.FAVE_PHOTO_REMOVED,
         payload: state.fave.filter((faveId) => faveId !== id),
       });
     } else {
-      // setFave(fave.concat(id)); //use .concat instead of .push to change the copy not the original
       dispatch({ type: actions.FAVE_PHOTO_ADDED, payload: id });
     }
   };
@@ -77,4 +95,5 @@ const useApplicationData = () => {
     showModal,
   };
 };
+
 export default useApplicationData;
