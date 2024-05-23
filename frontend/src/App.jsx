@@ -5,8 +5,13 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 import "./App.scss";
 
 const App = () => {
-  const { state, toggleFave, setSelectedPhoto, showModal } =
-    useApplicationData();
+  const {
+    state,
+    selectTopic,
+    toggleFave,
+    setSelectedPhoto,
+    showModal,
+  } = useApplicationData();
 
   return (
     <div className="App">
@@ -14,6 +19,7 @@ const App = () => {
         photos={state.photos}
         topics={state.topics}
         toggleFave={toggleFave}
+        selectTopic={selectTopic}
         fave={state.fave}
         modalOpen={state.modalOpen}
         showModal={showModal}

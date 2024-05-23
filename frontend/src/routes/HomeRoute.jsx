@@ -1,15 +1,13 @@
 import React from "react";
-import { useState } from "react";
 import TopNavigation from "../components/TopNavigationBar";
 import PhotoList from "../components/PhotoList";
 import "../styles/HomeRoute.scss";
-
-// lifting state: need to move usestate to parent component
 
 const HomeRoute = ({
   photos,
   topics,
   modalOpen,
+  selectTopic,
   toggleFave,
   fave,
   showModal,
@@ -18,7 +16,7 @@ const HomeRoute = ({
 }) => {
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} fave={fave} />
+      <TopNavigation topics={topics} fave={fave} selectTopic={selectTopic} />
       <PhotoList
         photos={photos}
         toggleFave={toggleFave}

@@ -87,9 +87,17 @@ const useApplicationData = () => {
       },
     });
   };
+  
+  const selectTopic = (topicId) => {
+    fetch(`http://localhost:8001/api/topics/photos/${topicId}`)
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: actions.SET_PHOTOS, payload: data }))
+      .catch((error) => console.error("Error fetching photos by topic:", error));
+  };
 
   return {
     state,
+    selectTopic,
     toggleFave,
     setSelectedPhoto,
     showModal,
