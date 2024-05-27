@@ -25,8 +25,6 @@ const PhotoDetailsModal = ({
     }
   } = selectedPhoto;
 
-  console.log(id);
-
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={showModal}>

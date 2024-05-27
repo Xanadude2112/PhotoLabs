@@ -39,15 +39,19 @@ const reducer = (state, action) => {
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  //PHOTO API DB
+
   useEffect(() => {
-    fetch(`/api/photos`)
+    fetch(`/api/photos`) //PROXY SET UP IN FRONT END PACKAGE.JSON
       .then((response) => response.json())
       .then((data) => dispatch({ type: actions.SET_PHOTOS, payload: data }))
       .catch((error) => console.error("Error fetching photos:", error));
   }, []);
 
+  //TOPIC API DB
+
   useEffect(() => {
-    fetch(`/api/topics`)
+    fetch(`/api/topics`) //PROXY SET UP IN FRONT END PACKAGE.JSON
       .then((response) => response.json())
       .then((data) => dispatch({ type: actions.SET_TOPICS, payload: data }))
       .catch((error) => console.error("Error fetching topics:", error));
@@ -57,6 +61,8 @@ const useApplicationData = () => {
     dispatch({ type: actions.TOGGLE_MODAL, payload: !state.modalOpen });
   };
 
+
+  //FAVE HEART BUTTON ANIMATIONS HANDLER
   const toggleFave = (id) => {
     if (state.fave.includes(id)) {
       dispatch({
@@ -68,6 +74,8 @@ const useApplicationData = () => {
     }
   };
 
+
+  //PHOTO SELECT HANDLER
   const setSelectedPhoto = ({ photo }) => {
     const {
       id,
@@ -87,9 +95,11 @@ const useApplicationData = () => {
       },
     });
   };
+
   
+  //TOPIC SELECT HANDLER
   const selectTopic = (topicId) => {
-    fetch(`http://localhost:8001/api/topics/photos/${topicId}`)
+    fetch(`/api/topics/photos/${topicId}`)
       .then((response) => response.json())
       .then((data) => dispatch({ type: actions.SET_PHOTOS, payload: data }))
       .catch((error) => console.error("Error fetching photos by topic:", error));
