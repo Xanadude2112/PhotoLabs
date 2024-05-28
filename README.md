@@ -25,11 +25,24 @@ On this site, you can find a couple of familiar UI and UX features that have bee
 1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
 2. Clone your repository onto your local device.
 3. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+4. cd into "frontend" and run `npm run start` command. Then cd into "backend/src" and run `node index.js`.
+5. Enjoy!
 
 ## Dependencies
 
+- @testing-library/jest-dom
+- @testing-library/react
+- @testing-library/user-event
+- react
+- react-dom
+- react-scrip
+- web-vitals
+- Ws
+- Socket.io
+- Cors
+- Dotenv
+- Pg
+- Helmet
 - Body-Parser
 - Express
 - Chance
@@ -39,7 +52,9 @@ On this site, you can find a couple of familiar UI and UX features that have bee
 
 ## DevDependencies
 
-- Nodemon
+- SASS
+- Jest
+- Supertest
 
 
 
