@@ -12,13 +12,13 @@ On this site, you can find a couple of familiar UI and UX features that have bee
 
 ## Final Product
 
-!["Screenshot of PhotoLabs page"](https://github.com/Xanadude2112/PhotoLabs/blob/main/docs/PhotoLabs-error.png?raw=true)
+!["Screenshot of PhotoLabs page"](https://github.com/Xanadude2112/PhotoLabs/blob/main/frontend/docs/home.png)
 
-!["Screenshot of PhotoLabs page "like" photo functionality"](https://github.com/Xanadude2112/PhotoLabs/blob/main/docs/PhotoLabs-error2.png?raw=true)
+!["Screenshot of PhotoLabs page "like" photo functionality"](https://github.com/Xanadude2112/PhotoLabs/blob/main/frontend/docs/like.png)
 
-!["Screenshot of PhotoLabs page modal functionality with similar photos"](https://github.com/Xanadude2112/PhotoLabs/blob/main/docs/PhotoLabs3.png?raw=true)
+!["Screenshot of PhotoLabs page modal functionality with similar photos"](https://github.com/Xanadude2112/PhotoLabs/blob/main/frontend/docs/modal.png)
 
-!["Screenshot of PhotoLabs topics filter functionality"](https://github.com/Xanadude2112/PhotoLabs/blob/main/docs/PhotoLabs2.png?raw=true)
+!["Screenshot of PhotoLabs topics filter functionality"](https://github.com/Xanadude2112/PhotoLabs/blob/main/frontend/docs/topic.png)
 
 ## Getting Started
 
