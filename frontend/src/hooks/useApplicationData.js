@@ -5,12 +5,14 @@ const actions = {
   FAVE_PHOTO_REMOVED: "FAVE_PHOTO_REMOVED",
   SELECT_PHOTO: "SELECT_PHOTO",
   TOGGLE_MODAL: "TOGGLE_MODAL",
+  TOGGLE_LIKE_MODAL: "TOGGLE_LIKE_MODAL",
   SET_PHOTOS: "SET_PHOTOS",
   SET_TOPICS: "SET_TOPICS",
 };
 
 const initialState = {
   modalOpen: false,
+  likeModalOpen: false,
   selectedPhoto: {},
   fave: [],
   photos: [],
@@ -25,6 +27,8 @@ const reducer = (state, action) => {
     return { ...state, fave: action.payload };
   case actions.TOGGLE_MODAL:
     return { ...state, modalOpen: action.payload };
+  case actions.TOGGLE_LIKE_MODAL:
+    return { ...state, likeModalOpen: action.payload };
   case actions.SELECT_PHOTO:
     return { ...state, selectedPhoto: action.payload };
   case actions.SET_PHOTOS:
@@ -57,10 +61,16 @@ const useApplicationData = () => {
       .catch((error) => console.error("Error fetching topics:", error));
   }, []);
 
+
+  //PHOTOLIST MODAL
   const showModal = () => {
     dispatch({ type: actions.TOGGLE_MODAL, payload: !state.modalOpen });
   };
 
+  //LKED PHOTO MODAL
+  const showLikedPhotoModal = () => {
+    dispatch({ type: actions.TOGGLE_LIKE_MODAL, payload: !state.likeModalOpen })
+  }
 
   //FAVE HEART BUTTON ANIMATIONS HANDLER
   const toggleFave = (id) => {
@@ -111,6 +121,7 @@ const useApplicationData = () => {
     toggleFave,
     setSelectedPhoto,
     showModal,
+    showLikedPhotoModal
   };
 };
 
