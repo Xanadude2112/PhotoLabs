@@ -22,7 +22,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
   case actions.FAVE_PHOTO_ADDED:
-    return { ...state, fave: state.fave.concat(action.payload) };
+    return { ...state, fave: state.fave.concat(action.payload) }; //concat is to add the liked photo *action.payload*
   case actions.FAVE_PHOTO_REMOVED:
     return { ...state, fave: action.payload };
   case actions.TOGGLE_MODAL:
